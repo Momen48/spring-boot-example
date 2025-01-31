@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@SpringBootApplication 
+@SpringBootApplication
 @RestController
 public class MainClass {
     public static void main(String[] args){
@@ -15,7 +15,11 @@ public class MainClass {
     }
 
     @GetMapping("/")
-    public String greet(){
-       return "Hello";
+    public GreetResponse greet(){
+        return new GreetResponse("Hello");
+   //     return "Hello";
     }
+
+    record GreetResponse(String greet){}
 }
+
